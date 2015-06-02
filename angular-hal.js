@@ -210,13 +210,15 @@ angular.module('angular-hal', [])
             if (!options.headers) options.headers = {};
             if (!options.headers['Content-Type']) options.headers['Content-Type'] = 'application/json';
             if (!options.headers.Accept) options.headers.Accept = 'application/hal+json,application/json';
+            if (!options.withCredentials) options.withCredentials = true;
 
             var resource = (
                 $http({
                     method: method,
                     url: options.transformUrl ? options.transformUrl(href) : href,
                     headers: options.headers,
-                    data: data
+                    data: data,
+                    withCredentials: options.withCredentials
                 })
                 .then(function (res) {
 
