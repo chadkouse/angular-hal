@@ -80,6 +80,11 @@ angular.module('angular-hal', [])
                         value: data[key]
                     });
                 }, this);
+            Object.defineProperty(this, "data", {
+                configurable: false,
+                enumerable: true,
+                value: data
+            });
 
 
             if (data[linksAttribute]) {
@@ -224,7 +229,7 @@ angular.module('angular-hal', [])
 
                     switch (Math.floor(res.status / 100)) {
                     case 2:
-                        if (res.data) {
+                        if (res.data && res.data != "") {
                             var resource = createResource(href, options, res.data);
                             resource.$res = res;
                             return resource;
