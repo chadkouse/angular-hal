@@ -80,7 +80,7 @@ angular.module('angular-hal', [])
                         value: data[key]
                     });
                 }, this);
-            Object.defineProperty(this, "data", {
+            Object.defineProperty(this, "$data", {
                 configurable: false,
                 enumerable: true,
                 value: data
@@ -234,8 +234,8 @@ angular.module('angular-hal', [])
                             resource.$res = res;
                             return resource;
                         }
-                        if (res.headers('Content-Location')) return res.headers('Content-Location');
-                        if (res.headers('Location')) return res.headers('Location');
+                        if (res.headers('Content-Location')) return normalizeLink(href, res.headers('Content-Location'));
+                        if (res.headers('Location')) return normalizeLink(href, res.headers('Location'));
                         return null;
 
                     default:
