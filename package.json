@@ -1,8 +1,8 @@
 {
   "name": "angular-hal",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Hal client for angularjs",
-  "repository": "git@github.com:elmerbulthuis/angular-hal.git",
+  "repository": "git@github.com:chadkouse/angular-hal.git",
   "author": "elmerbulthuis <elmerbulthuis@gmail.com>",
   "license": "BSD",
   "main": "",
